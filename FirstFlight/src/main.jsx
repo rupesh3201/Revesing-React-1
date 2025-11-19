@@ -2,5 +2,6 @@
 import { createRoot } from 'react-dom/client'
 
 const root = createRoot(document.getElementById("root"));
-root.render(<h1>First Flight</h1>)
+const num = 10
+root.render(<h1>First Flight {2+2}  {num % 2 == 0  ? "even" : "odd"}</h1>)
 
