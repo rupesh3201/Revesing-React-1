@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
  import { Hibutton } from './assets/Button';
+ import { Hellobutton } from './assets/Button';
 
 
 const root = createRoot(document.getElementById("root"));
@@ -18,7 +19,9 @@ export function Greeting(props) {
 root.render(
   <div>
     
-    <Hibutton/>
+    <Hibutton title="Hi,what is your name " />
+    <Hellobutton title="Hello , HI there" />
+    <Byebutton title="bye, see u soon  " />
     <h1>First Flight {2 + 2}</h1>
 
     <Greeting studentname="Rupesh" />
