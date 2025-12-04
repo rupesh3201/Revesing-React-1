@@ -1,0 +1,13 @@
+.Fotter
+{
+    background-color: aqua;
+    color: rgb(7, 3, 3);
+    padding: 10px;
+    text-align: center;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+
+}

@@ -1,7 +1,9 @@
 import { createRoot } from 'react-dom/client'
  import { Hibutton } from './assets/Button';
  import { Hellobutton } from './assets/Button';
+ import { Byebutton } from './assets/Button';
 import Fotter from './assets/Fotter';
+import './assets/Style.css/Fotter.css'
 
 const root = createRoot(document.getElementById("root"));
 const num = 10;
