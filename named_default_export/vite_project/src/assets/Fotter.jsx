@@ -2,7 +2,7 @@ import React from 'react'
 
 function Fotter() {
   return (
-    <div>
+    <div className=''>
         <hr />
         This is a Fotter
          <hr />
