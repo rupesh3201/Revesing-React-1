@@ -22,7 +22,7 @@ export function Greeting(props) {
 root.render(
   <div>
     
-    <Hibutton title="Hi,what is your name " />
+    <Hibutton title="Buy Now" />
     <Hellobutton title="Hello , HI there" />
     <Byebutton title="bye, see u soon  " />
     <h1>First Flight {2 + 2}</h1>
