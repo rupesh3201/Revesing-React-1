@@ -1,12 +1,13 @@
 import React from 'react'
+import Nav from '../component/Nav'
 
 function Home() {
   return (
     <>
-    <div>Home</div>
-     <a href="/">Home &nsbp;&nsbp;</a>
-    <a href="/about">About&nsbp;&nsbp; </a>
-     <a href="/contact">contact&nsbp;&nsbp; </a>
+   
+     <Nav/>
+
+      <div>content of Home</div>
     </>
   )
 }

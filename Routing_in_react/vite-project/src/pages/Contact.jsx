@@ -1,9 +1,12 @@
 import React from 'react'
-
+import Nav from '../component/Nav'
 function Contact() {
   return (
-    <div>Contact</div>
-    
+    <>
+   
+     <Nav/>
+      <div>contant of Contact</div>
+     </>
   )
 }
 

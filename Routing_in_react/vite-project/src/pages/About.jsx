@@ -1,10 +1,11 @@
 import React from 'react'
-
+import Nav from '../component/Nav'
 function About() {
   return (
     <>
-    <div>About</div>
-    <a href="/">Home</a>
+  
+    <Nav/>
+      <div> content of About</div>
     </>
   )
 }

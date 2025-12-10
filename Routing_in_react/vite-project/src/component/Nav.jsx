@@ -1,11 +1,11 @@
 import React from 'react'
-
+import "../css/Navbar.csss"
 function Nav() {
   return (
    <>
-     <a href="/">Home &nsbp;&nsbp;</a>
-    <a href="/about">About&nsbp;&nsbp; </a>
-     <a href="/contact">contact&nsbp;&nsbp; </a>
+     <a href="/">Home </a> &nbsp;
+    <a href="/about">About</a> &nbsp;
+     <a href="/contact">contact </a> &nbsp;
     </>
   )
 }
