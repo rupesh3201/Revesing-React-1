@@ -4,7 +4,7 @@ function Contact() {
   return (
     <>
    
-     <Nav/>
+     <Nav activeMenu = "/contact" />
       <div>contant of Contact</div>
      </>
   )

@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
    
-     <Nav/>
+     <Nav activeMenu = "/" />
 
       <div>content of Home</div>
     </>

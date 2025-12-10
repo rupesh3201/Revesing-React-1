@@ -4,7 +4,7 @@ function About() {
   return (
     <>
   
-    <Nav/>
+    <Nav activeMenu = "/about" />
       <div> content of About</div>
     </>
   )
