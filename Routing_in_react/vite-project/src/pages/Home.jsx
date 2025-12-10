@@ -2,7 +2,10 @@ import React from 'react'
 
 function Home() {
   return (
-    <div> i am at home page</div>
+    <>
+    <div>Home</div>
+    <a href="/about">About</a>
+    </>
   )
 }
 
