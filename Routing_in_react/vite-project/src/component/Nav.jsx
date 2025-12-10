@@ -1,9 +1,8 @@
 import React from 'react'
 
-function Home() {
+function Nav() {
   return (
-    <>
-    <div>Home</div>
+   <>
      <a href="/">Home &nsbp;&nsbp;</a>
     <a href="/about">About&nsbp;&nsbp; </a>
      <a href="/contact">contact&nsbp;&nsbp; </a>
@@ -11,4 +10,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Nav
