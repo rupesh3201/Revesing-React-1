@@ -1,9 +1,10 @@
 
 import { createRoot } from 'react-dom/client'
 
+import Home from './pages/Home'
 
 const root = createRoot(document.getElementById("root"))
 
 root.render(
- <h1>Rotuing App</h1>,
+ <h1><Home/></h1>,
 )
