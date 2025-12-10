@@ -18,6 +18,7 @@ else if (path === "/contact"){
 else{
   root.render(<h2> 404 not found</h2>);
 }
+// this all routing using javascript 
 // root.render(
 // <h1>path: {path}</h1>,
 //  <h1><Home/></h1>,
