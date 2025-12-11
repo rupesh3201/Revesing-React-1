@@ -1,12 +1,13 @@
 import React from 'react'
 import Nav from '../component/Nav'
+import Button from '../component/Button'
 
 function Home() {
   return (
     <>
    
      <Nav activeMenu = "/" />
-        <Button/>
+        <Button title= "Login" />
 
       <div>content of Home</div>
     </>

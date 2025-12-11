@@ -1,8 +1,9 @@
 import React from 'react'
 import "../css/Button.css"
-function Button() {
+function Button({title}) {
   return (
-    <button className='button'>Button</button>
+    
+    <button className='button'>{title}</button>
   )
 }
 

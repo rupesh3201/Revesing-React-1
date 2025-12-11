@@ -1,6 +1,20 @@
-.button{
-    padding: 10px;
+.button {
+    padding: 12px 28px;
     margin: 10px;
-    border-radius:10px ;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #b31217, #e52d27);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(226, 38, 38, 0.4);
+}
 
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(226, 38, 38, 0.6);
+    background: linear-gradient(135deg, #e52d27, #ff4d4d);
 }
