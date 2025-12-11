@@ -7,7 +7,7 @@ function Home() {
     <>
    
      <Nav activeMenu = "/" />
-        <Button title= "Login" />
+        <Button title= "Login" variant="login" />
 
       <div>content of Home</div>
     </>

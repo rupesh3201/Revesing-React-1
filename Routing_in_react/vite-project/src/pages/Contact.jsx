@@ -6,7 +6,7 @@ function Contact() {
     <>
    
      <Nav activeMenu = "/contact" />
-        <Button title= "Call Now"/>
+        <Button title= "Call Now" variant="call"/>
       <div>contant of Contact</div>
      </>
   )

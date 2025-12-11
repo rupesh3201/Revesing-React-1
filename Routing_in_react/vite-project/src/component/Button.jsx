@@ -1,9 +1,9 @@
 import React from 'react'
 import "../css/Button.css"
-function Button({title}) {
+function Button({title, variant}) {
   return (
     
-    <button className='button'>{title}</button>
+    <button className={`button btn-${variant}`}>{title}</button>
   )
 }
 

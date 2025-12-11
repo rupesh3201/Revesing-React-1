@@ -6,7 +6,7 @@ function About() {
     <>
   
     <Nav activeMenu = "/about" />
-    <Button title= "Click Me"/>
+    <Button title= "Click Me" variant="click"/>
       <div> content of About</div>
     </>
   )
