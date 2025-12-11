@@ -6,6 +6,7 @@ function Home() {
     <>
    
      <Nav activeMenu = "/" />
+        <Button/>
 
       <div>content of Home</div>
     </>
