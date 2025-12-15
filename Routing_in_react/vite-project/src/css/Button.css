@@ -91,10 +91,11 @@
 }
 .primary
 {
+
      padding: 12px 28px;
     margin: 10px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #14b311, #2ae527);
+    background: linear-gradient(135deg, #0f100f, #2ae527);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -103,5 +104,19 @@
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(226, 38, 38, 0.4);
-
+}
+.btn-small
+{
+    height: 30px;
+    width: 200px;
+}
+.btn-medium
+{
+    height: 50px;
+    width: 250px;
+}
+.btn-big
+{
+    height: 60px;
+    width: 300px;
 }
