@@ -1,0 +1,71 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main App Box */
+.app {
+  text-align: center;
+  padding: 30px;
+}
+
+/* Title */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+/* Picker Container */
+.picker-box {
+  background: white;
+  width: 450px;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Subtitle */
+.picker-box h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Emoji List Layout */
+.emoji-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* Even spacing */
+  margin: 25px 0;
+}
+
+/* Emoji Button */
+.emoji-btn {
+  font-size: 28px;
+  background: #f3f3f3;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+
