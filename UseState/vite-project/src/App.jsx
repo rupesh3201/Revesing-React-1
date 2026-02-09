@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css"
 import EmojiBtn from "./EmojiBtn";
+import ColourBtn from "./ColourBtn";
 
 function App() {
   const [emoji,setEmoji] = useState ("🤖");
@@ -34,7 +35,7 @@ function App() {
             fontSize:`${SilderVal}px`
           }}> {emoji}</div>
           <div className="SilderContainer">
-            <input type="range" min="0" max ="100"className="slider" onChange={(e)=>{setSilderVal(e.target.value);
+            <input type="range" min="50" max ="200"className="slider" onChange={(e)=>{setSilderVal(e.target.value);
 
             }
             }
@@ -48,6 +49,20 @@ function App() {
         <EmojiBtn emoji = {"👑"} setEmoji = {setEmoji}/>
         <EmojiBtn emoji = {"💫"} setEmoji = {setEmoji}/>
         <EmojiBtn emoji = {"🥂"} setEmoji = {setEmoji}/>
+         <EmojiBtn emoji = {"🖤"} setEmoji = {setEmoji}/>
+        <EmojiBtn emoji = {"🔥"} setEmoji = {setEmoji}/>
+        <EmojiBtn emoji = {"🪐"} setEmoji = {setEmoji}/>
+         <EmojiBtn emoji = {"🎧"} setEmoji = {setEmoji}/>
+        <EmojiBtn emoji = {"💫"} setEmoji = {setEmoji}/>
+        <EmojiBtn emoji = {"🚀"} setEmoji = {setEmoji}/>
+        <EmojiBtn emoji = {"🧿"} setEmoji = {setEmoji}/>
+        <EmojiBtn emoji = {"⛓️"} setEmoji = {setEmoji}/>       
+        </div>
+        </div>
+
+        <div className="colour-keypad">
+          <div className="colourPicker">
+            {/* Emoji comp */}
          <EmojiBtn emoji = {"🖤"} setEmoji = {setEmoji}/>
         <EmojiBtn emoji = {"🔥"} setEmoji = {setEmoji}/>
         <EmojiBtn emoji = {"🪐"} setEmoji = {setEmoji}/>

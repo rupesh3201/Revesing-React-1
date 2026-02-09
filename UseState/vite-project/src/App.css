@@ -15,7 +15,7 @@ align-items: center;
 
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 100px auto;
+  margin: 30px auto;
 
 }
 
@@ -94,4 +94,31 @@ align-items: center;
 .SilderContainer{
   display: flex;
   justify-content: center;
+}
+
+.colour-keypad
+{
+  border: 2px solid rgb(22, 176, 206);
+  width: 70%;
+  margin: 40px auto;
+  padding: 20px 25px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow-x: auto;        /* enables horizontal scroll */
+  overflow-y: hidden;
+
+}
+
+.colourPicker
+{
+ display: flex;
+  gap: 25px;
+  flex-wrap:wrap;   
 }

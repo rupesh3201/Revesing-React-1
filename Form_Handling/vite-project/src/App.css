@@ -1,0 +1,30 @@
+.InputName
+{
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.InputName:focus
+{
+  outline: none;
+  border-color: aqua;
+}
+.btn
+{
+  background:aqua;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+  margin: 20px 10px;
+  /* box-shadow: 1px 2px 2ppx red; */
+  border: 1px solid black;
+}
+.btn:focus
+{
+  outline: none;
+  border-color: aqua;
+}
