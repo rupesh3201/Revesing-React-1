@@ -37,12 +37,15 @@ function App() {
     }}/>
     <p style={{ color: "red" }}>{Error}</p>    
     <div className='Btn_container'>
-    <button className='btn' onClick={()=>{
+    <button className={`btn ${Error ? 'btndisable' : ''}`} onClick={()=>{
       saveName()
-    }}>Save</button>
+  
+    }}>Save</button> 
     <button className='btn'
     onClick={()=>{
-    setName("")}}
+    setName("")
+
+  }}
      >Clear</button>
     </div>
 </div>

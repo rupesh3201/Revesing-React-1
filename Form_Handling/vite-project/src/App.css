@@ -28,3 +28,9 @@
   outline: none;
   border-color: aqua;
 }
+
+.btndisable
+{
+  cursor: not-allowed;
+  background-color: grey;
+}
