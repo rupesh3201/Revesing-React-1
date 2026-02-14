@@ -1,64 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import "./App.css"
+import React, { useEffect, useState } from "react";
+import "./App.css";
+
 function App() {
-  const [Data,setData] = useState(
-  )
-  const [dob, setDob] = useState("");
-  const [age, setAge] = useState(null);
-  const[Error, setError] = useState ("");
-  const [Name , setName] = useState("");
-    const [Age ,SetAge] = useState("");
-    
-  // useffect Load when Page Load 
-  useEffect(()=>{const NameFromLocalStorage = localStorage.getItem("Name");
-    if(NameFromLocalStorage){
-      setName(NameFromLocalStorage);
+  const [formData, setFormData] = useState({
+    name: "",
+    age: "",
+    dob: ""
+  });
+
+  const [error, setError] = useState("");
+  const [actualAge, setActualAge] = useState(null);
+
+  // ✅ Load LocalStorage
+  useEffect(() => {
+    const savedName = localStorage.getItem("Name");
+    const savedAge = localStorage.getItem("Age");
+
+    setFormData((prev) => ({
+      ...prev,
+      name: savedName || "",
+      age: savedAge || ""
+    }));
+  }, []);
+
+  // ✅ Validation
+  useEffect(() => {
+    if (formData.name.length > 0 && formData.name.length < 3) {
+      setError("Name must be at least 3 characters long");
+    } else if (!formData.age || formData.age < 0 || formData.age > 100) {
+      setError("Please enter a valid age");
+    } else if (formData.age <= 18) {
+      setError("Age must be greater than 18");
+    } else {
+      setError("");
     }
-  },[])
- // useffect Load for age 
-  useEffect(()=>{const AgeFromLocalStorage = localStorage.getItem("Age");
-    if(AgeFromLocalStorage){
-      SetAge(AgeFromLocalStorage);
-    }
-  },[])
+  }, [formData.name, formData.age]);
 
-
-  // useffect Load when Name Change
-  useEffect(()=>{
-    if(Name.length > 0 && Name.length < 3)
-    {
-      setError("Name Should be at least 3 char long");
-    }else
-    setError("");
-    if (!Age || Age < 0 || Age > 100) {
-    setError("Please enter a valid age");
-    } 
-    else if (Age <= 18 ) {
-    setError("Age must be greater than 18");
-    } 
-    else {
-  setError("");
-}
-;
-
-  },[Name] [Age])
-
-
-
-  const saveName = ()=>{
-    if (!Name ){
-      alert("pls enter your name");
-      return;
-    }
-    localStorage.setItem("Name", Name);
-   
-    if (!Age) {
-    alert("pls enter your age");
-    return;
-  }
-   localStorage.setItem("Age", Age);
-    
-  };
+  // ✅ Calculate Age from DOB
   const calculateExactAge = (dob) => {
     const today = new Date();
     const birthDate = new Date(dob);
@@ -67,18 +45,12 @@ function App() {
     let months = today.getMonth() - birthDate.getMonth();
     let days = today.getDate() - birthDate.getDate();
 
-    // Adjust days
     if (days < 0) {
       months--;
-      const prevMonthDays = new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        0
-      ).getDate();
+      const prevMonthDays = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
       days += prevMonthDays;
     }
 
-    // Adjust months
     if (months < 0) {
       years--;
       months += 12;
@@ -87,72 +59,94 @@ function App() {
     return { years, months, days };
   };
 
+  // ✅ Update actual age when DOB changes
   useEffect(() => {
-    if (dob) {
-      setAge(calculateExactAge(dob));
+    if (formData.dob) {
+      setActualAge(calculateExactAge(formData.dob));
     }
-  }, [dob]);
+  }, [formData.dob]);
 
+  // ✅ Save
+  const handleSave = () => {
+    if (error) return;
+
+    localStorage.setItem("Name", formData.name);
+    localStorage.setItem("Age", formData.age);
+
+    alert("Saved Successfully ✅");
+  };
+
+  // ✅ Clear
+  const handleClear = () => {
+    localStorage.clear();
+
+    setFormData({
+      name: "",
+      age: "",
+      dob: ""
+    });
+
+    setError("");
+    setActualAge(null);
+  };
 
   return (
     <div>
-    <h1>Hello, {Name}! Hope Your Doing Well</h1>
-    <p>You are {Age?Age : 'Unkown '} years Old</p>
-    <input type="text"
-     placeholder='Enter your Name' 
-    className='InputName'
-     value={Name}
-    onChange={(e)=>{
-      setName(e.target.value)
-    }}/>
- &nbsp;
-    <input 
-    type='number'
-    placeholder='Enter Your Age'
-    className='InputName'
-    value={Age}
-      onChange={(e)=>{
-      SetAge(e.target.value)
-    }}/>
-    <p style={{ color: "red" }}>{Error}</p>    
-    <div className='Btn_container'>
+      <h1>Hello, {formData.name || "Guest"} 👋</h1>
 
-      {/* save btn */}
-    <button className={`btn ${Error ? 'btndisable' : ''}`} onClick={()=>{
-      saveName()
-  
-    }}>Save</button> 
+      <p>You are {formData.age || "Unknown"} years old</p>
 
-    {/* clear btn */}
-    <button className='btn'
-    onClick={()=>{
-    setName("");
-    SetAge("");
-    localStorage.clear();
-    setError("");
-  }}
-     >Clear</button>
-    </div>
+      {/* Name */}
+      <input
+        type="text"
+        placeholder="Enter your Name"
+        className="InputName"
+        value={formData.name}
+        onChange={(e) =>
+          setFormData((prev) => ({ ...prev, name: e.target.value }))
+        }
+      />
 
-     <div style={{ padding: "20px" }}>
-      <h2>Find Actual Age  Calculator 🎂</h2>
+      {/* Age */}
+      <input
+        type="number"
+        placeholder="Enter your Age"
+        className="InputName"
+        value={formData.age}
+        onChange={(e) =>
+          setFormData((prev) => ({ ...prev, age: e.target.value }))
+        }
+      />
+
+      <p style={{ color: "red" }}>{error}</p>
+
+      {/* Buttons */}
+      <button onClick={handleSave} disabled={error}>
+        Save
+      </button>
+
+      <button onClick={handleClear}>Clear</button>
+
+      {/* DOB */}
+      <h2>Actual Age Calculator 🎂</h2>
 
       <input
-  type="date"
-  value={dob}
-  onChange={(e) => setDob(e.target.value)}
-  className="dob-input"
-/>
+        type="date"
+        className="dob-input"
+        value={formData.dob}
+        onChange={(e) =>
+          setFormData((prev) => ({ ...prev, dob: e.target.value }))
+        }
+      />
 
-
-      {age && (
+      {actualAge && (
         <h3>
-          Your Age is: {age.years} Years, {age.months} Months, {age.days} Days
+          Your Age is: {actualAge.years} Years, {actualAge.months} Months,{" "}
+          {actualAge.days} Days
         </h3>
       )}
     </div>
-</div>
-  )
+  );
 }
 
-export default App
+export default App;
