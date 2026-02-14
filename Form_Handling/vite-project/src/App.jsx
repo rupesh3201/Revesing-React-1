@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import "./App.css"
 function App() {
+  const [Data,setData] = useState(
+  )
   const[Error, setError] = useState ("");
   const [Name , setName] = useState("");
+    const [Age ,SetAge] = useState("");
   useEffect(()=>{const NameFromLocalStorage = localStorage.getItem("Name");
     if(NameFromLocalStorage){
       setName(NameFromLocalStorage);
+    }
+  },[])
+
+  useEffect(()=>{const AgeFromLocalStorage = localStorage.getItem("Age");
+    if(AgeFromLocalStorage){
+      SetAge(AgeFromLocalStorage);
     }
   },[])
 
@@ -23,11 +32,18 @@ function App() {
       return;
     }
     localStorage.setItem("Name", Name);
+   
+    if (!Age) {
+    alert("pls enter your age");
+    return;
+  }
+   localStorage.setItem("Age", Age);
     
   };
   return (
     <div>
-      <h1>Hii , {Name}</h1>
+    <h1>Hii ,{Name}</h1>
+    <p>You are {Age?Age : 'Unkown '} years Old</p>
     <input type="text"
      placeholder='Enter your Name' 
     className='InputName'
@@ -35,12 +51,25 @@ function App() {
     onChange={(e)=>{
       setName(e.target.value)
     }}/>
+ &nbsp;
+    <input 
+    type='number'
+    placeholder='Enter Your Age'
+    className='InputName'
+    value={Age}
+      onChange={(e)=>{
+      SetAge(e.target.value)
+    }}/>
     <p style={{ color: "red" }}>{Error}</p>    
     <div className='Btn_container'>
+
+      {/* save btn */}
     <button className={`btn ${Error ? 'btndisable' : ''}`} onClick={()=>{
       saveName()
   
     }}>Save</button> 
+
+    {/* clear btn */}
     <button className='btn'
     onClick={()=>{
     setName("")
