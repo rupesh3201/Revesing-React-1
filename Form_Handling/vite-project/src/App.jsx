@@ -3,9 +3,12 @@ import "./App.css"
 function App() {
   const [Data,setData] = useState(
   )
+  const [dob, setDob] = useState("");
+  const [age, setAge] = useState(null);
   const[Error, setError] = useState ("");
   const [Name , setName] = useState("");
     const [Age ,SetAge] = useState("");
+    
   // useffect Load when Page Load 
   useEffect(()=>{const NameFromLocalStorage = localStorage.getItem("Name");
     if(NameFromLocalStorage){
@@ -27,22 +30,20 @@ function App() {
       setError("Name Should be at least 3 char long");
     }else
     setError("");
-
-  },[Name])
-
-  // useffect Load when AGE Change
-  useEffect(()=>{
     if (!Age || Age < 0 || Age > 100) {
-  setError("Please enter a valid age");
-} 
-else if (Age <= 18 ) {
-  setError("Age must be greater than 18");
-} 
-else {
+    setError("Please enter a valid age");
+    } 
+    else if (Age <= 18 ) {
+    setError("Age must be greater than 18");
+    } 
+    else {
   setError("");
 }
 ;
-  },[Age])
+
+  },[Name] [Age])
+
+
 
   const saveName = ()=>{
     if (!Name ){
@@ -58,6 +59,39 @@ else {
    localStorage.setItem("Age", Age);
     
   };
+  const calculateExactAge = (dob) => {
+    const today = new Date();
+    const birthDate = new Date(dob);
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
+
+    // Adjust days
+    if (days < 0) {
+      months--;
+      const prevMonthDays = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      ).getDate();
+      days += prevMonthDays;
+    }
+
+    // Adjust months
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    return { years, months, days };
+  };
+
+  useEffect(() => {
+    if (dob) {
+      setAge(calculateExactAge(dob));
+    }
+  }, [dob]);
 
 
   return (
@@ -96,9 +130,26 @@ else {
     SetAge("");
     localStorage.clear();
     setError("");
-
   }}
      >Clear</button>
+    </div>
+
+     <div style={{ padding: "20px" }}>
+      <h2>Find Actual Age  Calculator 🎂</h2>
+
+      <input
+  type="date"
+  value={dob}
+  onChange={(e) => setDob(e.target.value)}
+  className="dob-input"
+/>
+
+
+      {age && (
+        <h3>
+          Your Age is: {age.years} Years, {age.months} Months, {age.days} Days
+        </h3>
+      )}
     </div>
 </div>
   )
